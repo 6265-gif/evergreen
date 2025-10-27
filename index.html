@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EverGreen Landscapes | Portland, OR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --olive-green: #556B2F;
+            --soft-beige: #F5F5DC;
+            --wood-brown: #D2B48C;
+            --dark-green: #2F4F2F;
+            --light-green: #8FBC8F;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--soft-beige);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            font-weight: 500;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--olive-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            margin-right: 8px;
+            font-size: 1.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 2rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark-green);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--olive-green);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(rgba(85, 107, 47, 0.3), rgba(85, 107, 47, 0.3));
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+        .hero-content {
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 0 20px;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            color: white;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Form Section */
+        .form-section {
+            background-color: white;
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .form-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .form-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .form-box {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--soft-beige);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark-green);
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--olive-green);
+            box-shadow: 0 0 0 2px rgba(85, 107, 47, 0.2);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--olive-green);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .btn:hover {
+            background-color: var(--dark-green);
+            transform: translateY(-2px);
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-light {
+            background-color: white;
+        }
+        
+        .section-beige {
+            background-color: var(--soft-beige);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--olive-green);
+        }
+        
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--olive-green);
+        }
+        
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+            background-color: white;
+        }
+        
+        /* Testimonials */
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .testimonial:before {
+            content: """;
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 4rem;
+            color: var(--light-green);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 500;
+            color: var(--olive-green);
+        }
+        
+        /* About */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Contact */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--olive-green);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-green);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Leaf Animation */
+        .leaf {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23556B2F"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1.39-2.79C9.23 14.11 11.95 12 15 12c.65 0 1.27.09 1.86.24C17.5 8.93 17 8 17 8m-5-6c-2.12 0-3.91 1.06-5 2.69C6.91 3.06 5.12 2 3 2v4c1.91 0 3.5 1.08 4.36 2.66C8.55 6.94 10.24 6 12 6c3.87 0 7 3.13 7 7 0 2.76-1.62 5.13-4 6.24v2.07c3.39-.91 6-3.86 6-7.31 0-4.96-4.04-9-9-9z"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav li {
+                margin: 0;
+                text-align: center;
+                padding: 0.8rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero {
+                height: 70vh;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .form-box {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo"><span>🌿</span> EverGreen Landscapes</a>
+            <div class="mobile-menu">☰</div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Replace with your drone video -->
+        <video class="hero-video" autoplay muted loop>
+            <source src="your-drone-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h1>Designing outdoor beauty that lasts.</h1>
+            <p>Creating timeless, sustainable landscapes across Portland, OR.</p>
+            <a href="#form" class="btn">Build Your Dream Garden</a>
+        </div>
+    </section>
+
+    <!-- Where Design Meets Nature Section -->
+    <section class="section section-light" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Where Design Meets Nature</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Your yard isn't just soil and grass — it's potential.</p>
+                    <p>At EverGreen Landscapes, we turn Portland backyards into living works of art.</p>
+                    <ul>
+                        <li>Low-maintenance gardens that bloom all year.</li>
+                        <li>Stone paths that tell a story.</li>
+                        <li>Irrigation systems that think before they flow.</li>
+                    </ul>
+                    <p>Every design is intentional. Every detail, handcrafted.<br>
+                    Because when we work with nature — not against it — beauty lasts.</p>
+                </div>
+                <div class="about-image">
+                    <!-- Replace with your image -->
+                    <img src="china-old-garden.jpg" alt="Beautiful garden design">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The EverGreen Philosophy Section -->
+    <section class="section section-beige">
+        <div class="container">
+            <div class="section-title">
+                <h2>The EverGreen Philosophy</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <!-- Replace with your image -->
+                    <img src="park-outdoor-manicured-lawn-flowerbed-ai-generated-image.jpg" alt="Sustainable landscape design">
+                </div>
+                <div class="about-text">
+                    <p>We believe the best landscapes grow with time, not out of it.</p>
+                    <p>That's why our designs focus on:</p>
+                    <ul>
+                        <li>Native, drought-tolerant plants that thrive in Portland's climate.</li>
+                        <li>Smart irrigation that saves water and effort.</li>
+                        <li>Natural materials that blend with your home's style.</li>
+                    </ul>
+                    <p>No cookie-cutter templates. No rushed installs.<br>
+                    Just thoughtful, enduring design built around you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section section-light" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>What We Create</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏡</div>
+                    <h3>Garden & Landscape Design</h3>
+                    <p>From concept sketches to full transformations, we design outdoor spaces that balance color, structure, and sustainability.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💧</div>
+                    <h3>Irrigation Systems</h3>
+                    <p>Smart, efficient watering solutions that keep your plants healthy — and your water bill low.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🍂</div>
+                    <h3>Seasonal Lawn & Garden Care</h3>
+                    <p>Spring blooms. Summer trims. Autumn cleanups. Winter prep. Year-round maintenance, handled with care.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌼</div>
+                    <h3>Low-Maintenance Gardens</h3>
+                    <p>Native perennials, pollinator-friendly planting, and modern ground covers for effortless beauty that lasts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="section section-beige" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <!-- Replace with your image -->
+                    <img src="lush-tropical-garden.jpg" alt="Modern Haven project" class="project-img">
+                    <div class="project-content">
+                        <h3>The Modern Haven – NE Portland</h3>
+                        <p>A clean-lined, low-water landscape with natural stone and vertical plant textures. Minimal effort, maximum impact.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <!-- Replace with your image -->
+                    <img src="garden-park-imperial-palace.jpg" alt="Forest Escape project" class="project-img">
+                    <div class="project-content">
+                        <h3>Forest Escape – Lake Oswego</h3>
+                        <p>Shaded woodland garden blending Japanese maples, ferns, and eco-friendly irrigation.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <!-- Replace with your image -->
+                    <img src="luxury-outdoor-hotel.jpg" alt="Urban Renewal project" class="project-img">
+                    <div class="project-content">
+                        <h3>Urban Renewal – Downtown ADU</h3>
+                        <p>Compact courtyard transformed into a lush retreat for small-space living.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section section-light" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Words from Our Clients</h2>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <p class="testimonial-text">"EverGreen completely transformed our yard — now it feels like a retreat, not just a backyard."</p>
+                    <p class="testimonial-author">— Heather L., Portland</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"They listened to what we wanted and created a design that feels like us. Beautiful, sustainable, and easy to maintain."</p>
+                    <p class="testimonial-author">— Eric & Dana M., Beaverton</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section class="section section-beige">
+        <div class="container">
+            <div class="section-title">
+                <h2>A Portland Original</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>We're a family-owned business, rooted right here in the Pacific Northwest.</p>
+                    <p>Our small crew of designers and landscapers shares one vision — create spaces that stay beautiful through every season, every storm, and every year.</p>
+                    <p>We don't just plant.<br>
+                    We design for longevity.</p>
+                </div>
+                <div class="about-image">
+                    <!-- Replace with your image -->
+                    <img src="landscaping team.png" alt="EverGreen Landscapes team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="form-section" id="form">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-content">
+                    <h2>Let's Grow Something Beautiful</h2>
+                    <p>Ready to transform your outdoor space? Contact us today for a consultation.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <span>Portland, OR</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📞</span>
+                            <span>(503) 555-0148</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <span>hello@evergreenlandscapes.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-box">
+                    <h3>Start Your Landscape Design</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="project-type">Project Type</label>
+                            <select id="project-type" class="form-control" required>
+                                <option value="" disabled selected>Select a project type</option>
+                                <option value="garden-design">Garden & Landscape Design</option>
+                                <option value="irrigation">Irrigation Systems</option>
+                                <option value="seasonal-care">Seasonal Lawn & Garden Care</option>
+                                <option value="low-maintenance">Low-Maintenance Gardens</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn">Book a Design Consultation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>EverGreen Landscapes</h3>
+                    <p>Designing outdoor beauty that lasts in Portland, OR and surrounding areas.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>📍 Portland, OR</li>
+                        <li>📞 (503) 555-0148</li>
+                        <li>📧 hello@evergreenlandscapes.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 EverGreen Landscapes. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Leaf Animation -->
+    <div id="leaf-container"></div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+
+        // Leaf Animation
+        function createLeaf() {
+            const leaf = document.createElement('div');
+            leaf.classList.add('leaf');
+            
+            // Random position
+            const left = Math.random() * 100;
+            leaf.style.left = `${left}vw`;
+            
+            // Random size
+            const size = Math.random() * 20 + 10;
+            leaf.style.width = `${size}px`;
+            leaf.style.height = `${size}px`;
+            
+            // Random opacity
+            leaf.style.opacity = Math.random() * 0.3 + 0.1;
+            
+            // Random animation duration
+            const duration = Math.random() * 20 + 10;
+            leaf.style.animation = `fall ${duration}s linear infinite`;
+            
+            document.getElementById('leaf-container').appendChild(leaf);
+            
+            // Remove leaf after animation completes
+            setTimeout(() => {
+                leaf.remove();
+            }, duration * 1000);
+        }
+
+        // Create multiple leaves
+        for (let i = 0; i < 15; i++) {
+            setTimeout(createLeaf, Math.random() * 5000);
+        }
+
+        // Continue creating leaves periodically
+        setInterval(createLeaf, 3000);
+
+        // Add CSS for leaf animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                0% {
+                    transform: translateY(-100px) rotate(0deg);
+                }
+                100% {
+                    transform: translateY(100vh) rotate(360deg);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! We will contact you soon to schedule your consultation.');
+            this.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.querySelector('nav ul').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
